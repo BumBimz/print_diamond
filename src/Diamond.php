@@ -20,9 +20,7 @@ class Diamond
         $line = "";
         $line .= $this->addSpace(ord($input) - ord($start));
         $line .= $start;
-        if ($start != "A") {
-            $line .= " " . $start;
-        }
+        $line .= $this->addRestOfLine($start);
         return $line .= "\n";
     }
 
@@ -33,5 +31,15 @@ class Diamond
             $result .= " ";
         }
         return $result;
+    }
+
+    private function addRestOfLine($start)
+    {
+        $line = '';
+        if ($start != 'A') {
+            $count = (ord($start) - ord('A')) * 2 - 1;
+            $line = $this->addSpace($count) . $start;
+        }
+        return $line;
     }
 }
