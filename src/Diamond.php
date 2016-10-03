@@ -16,9 +16,14 @@ class Diamond
     }
     public function buildLine($start, $input)
     {
-        $line = "" . $start;
-        if ($start != 'A') {
-            $line .= $input;
+        $line = "";
+        if ($input != "A") {
+            $line = " ";
+        }
+        if ($start == 'A') {
+            $line .= $start;
+        } else {
+            $line = $start . " " . $start;
         }
         return $line .= "\n";
     }

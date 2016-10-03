@@ -7,10 +7,10 @@ class SpaceLeftTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("A\n", $diamond->create('A'));
     }
 
-    public function test_B_should_repeat_of_second_line()
+    public function test_B_should_add_spacebar_of_first_line()
     {
         $diamond = new Diamond();
-        $this->assertEquals("A\nBB\nA\n", $diamond->create('B'));
+        $this->assertEquals(" A\nB B\n A\n", $diamond->create('B'));
     }
 
 }
