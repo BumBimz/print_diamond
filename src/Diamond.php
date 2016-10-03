@@ -6,11 +6,7 @@ class Diamond
         $result = "";
         $bottomLine = "";
         for ($start = "A"; $start <= $input; $start++) {
-            $line = "" . $start;
-            if ($start != 'A') {
-                $line .= $input;
-            }
-            $line .= "\n";
+            $line = $this->buildLine($start, $input);
             $result .= $line;
             if ($start != $input) {
                 $bottomLine = $line . $bottomLine;
@@ -18,5 +14,12 @@ class Diamond
         }
         return $result . $bottomLine;
     }
-
+    public function buildLine($start, $input)
+    {
+        $line = "" . $start;
+        if ($start != 'A') {
+            $line .= $input;
+        }
+        return $line .= "\n";
+    }
 }
