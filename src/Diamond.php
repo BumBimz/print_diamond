@@ -14,17 +14,24 @@ class Diamond
         }
         return $result . $bottomLine;
     }
-    public function buildLine($start, $input)
+
+    private function buildLine($start, $input)
     {
         $line = "";
-        if ($input != "A") {
-            $line = " ";
-        }
-        if ($start == 'A') {
-            $line .= $start;
-        } else {
-            $line = $start . " " . $start;
+        $line .= $this->addSpace(ord($input) - ord($start));
+        $line .= $start;
+        if ($start != "A") {
+            $line .= " " . $start;
         }
         return $line .= "\n";
+    }
+
+    private function addSpace($count)
+    {
+        $result = "";
+        for ($i = 0; $i < $count; $i++) {
+            $result .= " ";
+        }
+        return $result;
     }
 }
